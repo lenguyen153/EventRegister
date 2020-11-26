@@ -4,9 +4,10 @@ var path = require('path')
 module.exports = {
   build: {
     env: require('./prod.env'),
-    host: 'eventregistration-frontend-123.herokuapp.com',
+    // host: 'eventregistration-frontend-1503.herokuapp.com',
+    host: 'eventregistration-frontend-1503.herokuapp.com',
     port: 443,
-    backendHost: 'eventregistration-backend-123.herokuapp.com',
+    backendHost: 'eventregistration-backend-1503.herokuapp.com',
     backendPort: 443,
     index: path.resolve(__dirname, '../dist/index.html'),
     assetsRoot: path.resolve(__dirname, '../dist'),
@@ -29,7 +30,7 @@ module.exports = {
     env: require('./dev.env'),
     env: require('./dev.env'),
     host: '127.0.0.1',
-    port: 8087,
+    port: 8089,
     backendHost: '127.0.0.1',
     backendPort: 8080,
     autoOpenBrowser: true,

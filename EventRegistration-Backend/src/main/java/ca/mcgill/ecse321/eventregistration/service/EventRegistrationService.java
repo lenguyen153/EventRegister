@@ -28,9 +28,15 @@ public class EventRegistrationService {
 
 	@Transactional
 	public Person createPerson(String name) {
+//		if (name == null || name.trim().length() == 0) {
+//			throw new IllegalArgumentException("Person name cannot be empty!");
+//		}
 		if (name == null || name.trim().length() == 0) {
 			throw new IllegalArgumentException("Person name cannot be empty!");
+		} else if (personRepository.existsById(name)) {
+			throw new IllegalArgumentException("Person has already been created!");
 		}
+		//need validation for duplication
 		Person person = new Person();
 		person.setName(name);
 		personRepository.save(person);
