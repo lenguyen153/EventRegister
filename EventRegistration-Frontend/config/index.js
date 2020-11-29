@@ -5,7 +5,7 @@ module.exports = {
   build: {
     env: require('./prod.env'),
     // host: 'eventregistration-frontend-1503.herokuapp.com',
-    host: 'eventregistration-frontend-1503.herokuapp.com',
+    host: 'eventregistration-frontend-1.herokuapp.com',
     port: 443,
     backendHost: 'eventregistration-backend-1503.herokuapp.com',
     backendPort: 443,
