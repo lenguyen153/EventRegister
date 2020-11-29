@@ -1,1 +1,2 @@
 include ':EventRegistration-Backend'
+include ':EventRegistration-Frontend'
