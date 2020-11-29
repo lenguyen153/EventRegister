@@ -10,10 +10,9 @@ var path = require('path')
 var express = require('express')
 var webpack = require('webpack')
 var proxyMiddleware = require('http-proxy-middleware')
-var webpackConfig = (process.env.NODE_ENV === 'testing' || process.env.NODE_ENV === 'production')
-  ? require('./webpack.prod.conf')
-  : require('./webpack.dev.conf')
-
+// var webpackConfig = (process.env.NODE_ENV === 'testing' || process.env.NODE_ENV === 'production')   ? require('./webpack.prod.conf')
+//   : require('./webpack.dev.conf')
+var webpackConfig = require('./webpack.dev.conf')
 // default port where dev server listens for incoming traffic
 var port = process.env.PORT || config.dev.port
 // automatically open browser, if not set will be false
@@ -65,8 +64,14 @@ app.use(hotMiddleware)
 var staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)
 app.use(staticPath, express.static('./static'))
 
-//var uri = 'http://localhost:' + port
-var host = config.dev.host
+// var uri = 'http://localhost:' + port
+var port = config.build.port
+var host = config.build.host
+if(process.env.NODE_ENV == 'development')
+{
+  port = config.dev.port
+  host = config.dev.host
+}
 var uri = 'http://' + host + ':' + port
 
 var _resolve
